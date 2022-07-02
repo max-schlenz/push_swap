@@ -1,16 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschlenz <mschlenz@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:54:41 by mschlenz          #+#    #+#             */
-/*   Updated: 2022/07/01 16:55:46 by mschlenz         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:03:00 by mschlenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	init_struct(t_psvars **vars)
+{
+	*vars = malloc(sizeof(t_psvars));
+	(*vars)->group = 0;
+	(*vars)->counter_group = 1;
+	(*vars)->counter_elem = 0;
+	(*vars)->num_elem = 0;
+	(*vars)->num_elems_group = 0;
+	(*vars)->index = 0;
+	(*vars)->index_max = 0;
+	(*vars)->pvt = 0;
+	(*vars)->pvt_best = 0;
+	(*vars)->flag_print = 0;
+	(*vars)->op_count = 0;
+	(*vars)->op_count_best = SIZE_MAX;
+}
 
 size_t	dupe_check(t_pslist **stack)
 {

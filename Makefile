@@ -6,7 +6,7 @@
 #    By: mschlenz <mschlenz@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 12:57:52 by mschlenz          #+#    #+#              #
-#    Updated: 2022/07/02 11:36:20 by mschlenz         ###   ########.fr        #
+#    Updated: 2022/07/02 12:10:49 by mschlenz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ SRC_PS_PATH		=	$(addsuffix .c, $(addprefix $(SRC_DIR), $(SRC_PS)))
 SRC_CHK_PATH	=	$(addsuffix .c, $(addprefix $(SRC_DIR), $(SRC_CHK)))
 
 
-FLAGS			= 	#-Wall -Wextra -Werror
+FLAGS			= 	-Wall -Wextra -Werror
 
 INCLUDES		= 	-I inc -L lib -l ft
 
