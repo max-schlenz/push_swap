@@ -6,7 +6,7 @@
 #    By: mschlenz <mschlenz@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 12:57:52 by mschlenz          #+#    #+#              #
-#    Updated: 2022/07/02 09:13:01 by mschlenz         ###   ########.fr        #
+#    Updated: 2022/07/02 11:36:26 by mschlenz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@
 DEFCL	=	\033[0m
 RED		=	\033[0;31m
 LBLUE	=	\033[1;34m
+LCYAN	=	\033[1;36m
+PURPLE	=	\033[0;35m
 
 NAME 		= libft.a
 
@@ -34,13 +36,13 @@ OBJ_PATH	=	$(addsuffix .o, $(addprefix $(OBJ_DIR), $(SRC)))
 FLAGS		=	-Wall -Wextra -Werror
 INCLUDES	=	-I inc
 
-all: create_dirs $(NAME)
+all: create_dirs $(OBJ_PATH) $(NAME)
 
 obj/%.o : src/%.c message
 	@cc $(FLAGS) $(INCLUDES) -c $< -o $@
+	@ar -ruc $(LIB_DIR)$(NAME) $@
 
 $(NAME): $(OBJ_PATH)
-	@ar -ruc $(LIB_DIR)$(NAME) obj/*.o
 	@make -C src/ft_printf
 	@make -C src/get_next_line
 
@@ -51,11 +53,11 @@ create_dirs:
 .INTERMEDIATE: message
 
 message:
-	@echo "compiling ${LBLUE}libft${DEFCL}..."
+	@echo "${DEFCL}compiling ${LBLUE}libft${DEFCL}..."
 	
 clean:
 	@if [[ -n `find $(OBJ_DIR) -type f -name '*.o'` ]]; then \
-		echo "removing ${LBLUE}libft${DEFCL} object files..."; \
+		echo "${PURPLE}removing ${LBLUE}libft${PURPLE} object files...${DEFCL}"; \
 		find $(OBJ_DIR) -type f -name '*.o' -delete; \
 	fi
 	@make clean -C src/ft_printf
@@ -63,7 +65,7 @@ clean:
 
 fclean: clean
 	@if [ -f "$(LIB_DIR)libft.a" ]; then \
-		echo "removing ${LBLUE}libft${DEFCL} library file..."; \
+		echo "${PURPLE}removing ${LBLUE}libft${PURPLE} library file...${DEFCL}"; \
 		rm -f $(LIB_DIR)libft.a; \
 	fi
 	@make fclean -C src/ft_printf
