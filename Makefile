@@ -6,7 +6,7 @@
 #    By: mschlenz <mschlenz@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 12:57:52 by mschlenz          #+#    #+#              #
-#    Updated: 2022/07/02 10:50:53 by mschlenz         ###   ########.fr        #
+#    Updated: 2022/07/02 11:01:11 by mschlenz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,10 +55,10 @@ libft:
 
 bonus: libft $(NAME_BONUS)
 
-$(NAME): $(OBJ_PATH) message
+$(NAME): $(SRC_PATH) message
 	@gcc $(FLAGS) $(INCLUDES) $(LIB) $(SRC_PATH) $(SRC_PS_PATH) -o $(NAME)
 
-$(NAME_BONUS): $(OBJ_PATH) message_bonus
+$(NAME_BONUS): $(SRC_PATH) message_bonus
 	@gcc $(FLAGS) $(INCLUDES) $(LIB) $(SRC_PATH) $(SRC_CHK_PATH) -o $(NAME_BONUS)
 
 create_dirs:
